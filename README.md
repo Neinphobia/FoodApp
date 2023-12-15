@@ -14,7 +14,11 @@ or use custom script
 Base url:
 https://food-app-five-neon.vercel.app/
 
-Authorized Urls: get the foodlist
-https://food-app-five-neon.vercel.app/api/food
-get the last food:
-https://food-app-five-neon.vercel.app/api/food/latest
+Authorized Urls:
+get the foodlist
+
+    https://food-app-five-neon.vercel.app/api/food
+
+get the last food
+
+    https://food-app-five-neon.vercel.app/api/food/latest
