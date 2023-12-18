@@ -11,6 +11,7 @@ app.use(cors()); //2
 connectDB();
 const foodControllerRoutes = require("./controllers/foodController"); //router can be used like this too
 const { router } = require("./controllers/foodController"); // destructring is better tho
+const { orderRouter } = require("./controllers/orderController"); // destructring is better tho
 
 //need error and input handler...
 
@@ -23,6 +24,9 @@ app.use(async (req, res, next) => {
     "/auth/login",
     "/api/food",
     "/api/food/latest",
+    "/api/food/orderFood",
+    "/order/",
+    "/order/post",
   ];
 
   // Exclude certain routes from authentication
@@ -69,7 +73,7 @@ app.use(async (req, res, next) => {
 //middlewares
 app.use("/auth", authRoutes);
 app.use("/api/food", router);
-
+app.use("/order", orderRouter);
 app.listen(port, () => {
   // sayHello();
   console.log(`listening on port ${port}`);

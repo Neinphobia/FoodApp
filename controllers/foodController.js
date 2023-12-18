@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const foodService = require("../services/foodService");
+const axios = require("axios");
 
 router.get("/", async (req, res) => {
   try {
@@ -42,7 +43,18 @@ router.get("/:id", async (req, res) => {
       .json({ error: `${req.params.id} Failed to get this food.` });
   }
 });
+router.post("/orderFood", async (req, res) => {
+  try {
+    const order = req.body;
+    //send a message to the boss's pc:
+    console.log(order);
+    await axios.post("https://furkangonulal.com/todos", { task: order.task });
 
+    res.json(order);
+  } catch (error) {
+    console.log("order Error:", error);
+  }
+});
 // Create a new food
 router.post("/addFood", async (req, res) => {
   try {
