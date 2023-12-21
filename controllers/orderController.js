@@ -1,7 +1,6 @@
 const express = require("express");
 const orderRouter = express.Router();
 const orderService = require("../services/orderService");
-const axios = require("axios");
 
 orderRouter.get("/", async (req, res) => {
   try {
