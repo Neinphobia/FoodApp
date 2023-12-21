@@ -27,8 +27,17 @@ const postOrder = async (orderData) => {
     throw new Error("Failed to create order");
   }
 };
+const deleteOrder = async (id) => {
+  try {
+    const order = await Order.findByIdAndDelete(id);
+    return order;
+  } catch (error) {
+    throw new Error("Failed to delete order");
+  }
+};
 module.exports = {
   getOrders,
   getOrderById,
   postOrder,
+  deleteOrder,
 };
